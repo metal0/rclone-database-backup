@@ -16,8 +16,8 @@ function check_file() {
 
 # rclone command
 if [[ "$1" == "rclone" ]]; then
-  "$*"
-  exit 0
+    $*
+    exit 0
 fi
 
 # check if all environment variables are set
