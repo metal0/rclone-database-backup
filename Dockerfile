@@ -5,7 +5,13 @@ RUN apk --no-cache add \
     postgresql-client \
     rclone \
     sqlite \
-    tzdata
+    tzdata \
+    libffi-dev \
+    musl-dev \
+    libressl-dev \
+    gcc
+
+
 
 # create the app directory
 WORKDIR /app
