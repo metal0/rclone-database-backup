@@ -61,7 +61,7 @@ echo "CRON = ${CRON}"
 crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" | crontab - && echo "created cron entry"
 
 service cron start
-systemctl status cron | echo
+service cron status | echo
 crontab -l | echo
 
 #tail -f /var/log/syslog | grep CRON
