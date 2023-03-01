@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 RUN apt-get update -y
 RUN apt-get install -y sqlite3 postgresql-client tzdata openssl curl unzip
