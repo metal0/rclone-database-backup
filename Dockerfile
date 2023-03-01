@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:latest
 
 RUN apt-get update -y
 RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron
