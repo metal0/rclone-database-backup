@@ -1,2 +1,2 @@
-* * * * * root echo "Hello world" >> /var/log/backup-cron.log 2>&1
+* * * * * root cd /app/scripts && sh backup.sh >> /var/log/backup-cron.log 2>&1
 #
