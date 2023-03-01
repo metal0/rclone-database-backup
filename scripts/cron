@@ -1,2 +1,0 @@
-* * * * * root cd /app/scripts && sh backup.sh >> /var/log/backup-cron.log 2>&1
-#

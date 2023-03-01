@@ -25,15 +25,5 @@ RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
 # volume for rclone config
 VOLUME ["/root/.config/rclone"]
 
-# Add crontab file in the cron directory
-ADD scripts/cron /etc/cron.d/backup-cron
-
-# Give execution rights on the cron job
-RUN chmod 0644 /etc/cron.d/backup-cron
-
-# Create the log file to be able to run tail
-RUN touch /var/log/backup-cron.log
-
-
 # entrypoint
 ENTRYPOINT ["/bin/sh", "scripts/entrypoint.sh"]
