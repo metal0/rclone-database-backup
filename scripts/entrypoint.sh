@@ -62,6 +62,7 @@ crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd
 #echo "starting crond"
 #crond -l 2 -f
 
-while true do
-  echo "hi"
+while true
+do
+  sleep 1
 done
