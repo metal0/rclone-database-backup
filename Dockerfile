@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update -y
-RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron mysql-client wget lsb-release
+RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron mysql-client wget lsb-release gnupg
 RUN wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb
 RUN dpkg -i mysql-apt-config_0.8.16-1_all.deb
 RUN apt-get update -y
