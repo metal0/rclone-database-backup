@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get update -y
-RUN apt-get install -y sqlite3 postgresql-client tzdata openssl curl unzip
+RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron
 RUN curl https://rclone.org/install.sh | bash
 
 # create the app directory

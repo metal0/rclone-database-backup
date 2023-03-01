@@ -40,7 +40,7 @@ fi
 
 # check if rclone config exists
 rclone config show "${RCLONE_REMOTE}" > /dev/null
-if [[ $? != 0 ]]; then
+if [ $? != 0 ]; then
   echo "rclone config does not exist"
   exit 1
 else
@@ -49,7 +49,7 @@ fi
 
 # check if rclone config is functional
 rclone mkdir "${RCLONE_REMOTE}:${BACKUP_FOLDER}" > /dev/null
-if [[ $? != 0 ]]; then
+if [ $? != 0 ]; then
   echo "rclone config is incorrect"
   exit 1
 else
