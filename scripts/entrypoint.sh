@@ -62,7 +62,7 @@ crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd
 
 chmod 0644 /etc/cron.d/backup-cron
 
-cat /etc/cron.d/backup-cron | echo
+cat /etc/cron.d/backup-cron
 
 crontab /etc/cron.d/backup-cron
 
