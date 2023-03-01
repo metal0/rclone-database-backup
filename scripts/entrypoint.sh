@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 check_env() {
   if [ -z "$1" ]; then
