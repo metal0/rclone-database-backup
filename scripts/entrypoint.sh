@@ -15,7 +15,7 @@ check_file() {
 }
 
 # rclone command
-if "$1" == "rclone"; then
+if ["$1" == "rclone"] then
     $*
     exit 0
 fi
@@ -27,7 +27,7 @@ check_env "${RCLONE_REMOTE}"
 check_env "${BACKUP_FOLDER}"
 check_env "${BACKUP_AGE}"
 check_env "${DB_CONNECTION}"
-if "${DB_CONNECTION}" == "sqlite"  then
+if ["${DB_CONNECTION}" == "sqlite"]  then
   check_env "${DB_FILE}"
   check_file "/database/${DB_FILE}"
 else
