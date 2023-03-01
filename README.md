@@ -12,7 +12,7 @@ docker volume create rclone_database_backup
 ```shell
 docker run --rm -it \
   -v rclone_database_backup:/root/.config/rclone \
-  ghcr.io/haq/rclone-database-backup \
+  ghcr.io/metal0/rclone-database-backup \
   rclone config
 ```
 
@@ -21,7 +21,7 @@ docker run --rm -it \
 ### container
 ```yaml
 backup:
-  image: ghcr.io/haq/rclone-database-backup
+  image: ghcr.io/metal0/rclone-database-backup
   environment:
     - TZ=America/Toronto
     - CRON=0 0 * * *
