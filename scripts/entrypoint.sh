@@ -57,6 +57,7 @@ else
 fi
 
 # configure crontab
-crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" | crontab - && echo "created cron entry"
+# crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /var/log/backup-cron.log" | crontab - && echo "created cron entry"
 
-cron -f -l 2
+#cron -f -l 2
+cron && tail -f /var/log/backup-cron.log

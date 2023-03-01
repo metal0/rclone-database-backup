@@ -1,0 +1,2 @@
+* * * * * root echo "Hello world" >> /var/log/backup-cron.log 2>&1
+#
