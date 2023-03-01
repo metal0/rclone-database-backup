@@ -66,6 +66,6 @@ service cron start
 while true
 do
   sleep 1
-fi
+done
 #echo "starting crond"
 #crond -l 2 -f
