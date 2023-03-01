@@ -19,9 +19,6 @@ WORKDIR /app
 # copy project folder
 COPY . ./
 
-# copy mysqldump binary
-# COPY --from=linuxserver/mariadb:latest /usr/bin/mysqldump /usr/bin/mysqldump
-
 # fix permissions
 RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
 
@@ -29,4 +26,4 @@ RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
 VOLUME ["/root/.config/rclone"]
 
 # entrypoint
-ENTRYPOINT ["/bin/sh", "scripts/backup.sh"]
+ENTRYPOINT ["/bin/sh", "scripts/entrypoint.sh"]
