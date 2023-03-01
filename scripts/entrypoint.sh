@@ -57,7 +57,6 @@ else
 fi
 
 # configure crontab
-echo "CRON = ${CRON}"
 crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" > /etc/cron.d/backup-cron && echo "created cron entry"
 
 chmod 0644 /etc/cron.d/backup-cron
@@ -69,4 +68,8 @@ crontab /etc/cron.d/backup-cron
 # tail log file
 touch /var/log/cron.log
 
-cron && tail -f /var/log/cron.log
+crontab -l | echo
+
+cron -f -l 2
+
+#cron && tail -f /var/log/cron.log
