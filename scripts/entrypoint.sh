@@ -58,7 +58,8 @@ fi
 
 # configure crontab
 crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" | crontab - && echo "created cron entry"
-
+echo "crons:"
+crontab -l | echo
 #
 echo "starting crond"
 crond -l 2 -f
