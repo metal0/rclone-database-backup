@@ -61,7 +61,11 @@ crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd
 
 service cron start
 
-tail -f /var/log/syslog | grep CRON
+#tail -f /var/log/syslog | grep CRON
 
+while true
+do
+  sleep 1
+fi
 #echo "starting crond"
 #crond -l 2 -f
