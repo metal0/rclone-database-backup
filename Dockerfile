@@ -1,7 +1,10 @@
 FROM alpine:edge
 
 # install required packages
-RUN apk --no-cache add \
+RUN apk --no-cache -U add \
+    fuse \
+    mariadb-client \
+    ca-certificates \
     postgresql-client \
     rclone \
     sqlite \
@@ -20,7 +23,7 @@ WORKDIR /app
 COPY . ./
 
 # copy mysqldump binary
-COPY --from=linuxserver/mariadb:alpine /usr/bin/mysqldump /usr/bin/mysqldump
+# COPY --from=linuxserver/mariadb:alpine /usr/bin/mysqldump /usr/bin/mysqldump
 
 # fix permissions
 RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
