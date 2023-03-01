@@ -15,7 +15,7 @@ check_file() {
 }
 
 # rclone command
-if ["$1" == "rclone"] then
+if [ "$1"=="rclone" ]; then
     $*
     exit 0
 fi
