@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 
+RUN apt-get update -y
+RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron mysql-client wget
 RUN wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.16-1_all.deb
 RUN sudo dpkg -i mysql-apt-config_0.8.16-1_all.deb
 RUN apt-get update -y
-RUN apt-get install -y sqlite3 postgresql-client openssl curl unzip cron mysql-client
 RUN curl https://rclone.org/install.sh | bash
 
 # create the app directory
