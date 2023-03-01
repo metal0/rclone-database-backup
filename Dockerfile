@@ -20,4 +20,4 @@ RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
 VOLUME ["/root/.config/rclone"]
 
 # entrypoint
-ENTRYPOINT ["/bin/sh", "scripts/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "scripts/backup.sh"]
