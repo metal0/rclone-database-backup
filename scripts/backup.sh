@@ -7,7 +7,7 @@ echo "exporting database"
 case "${DB_CONNECTION}" in
 
   mariadb)
-    mariadb-dump --host "${DB_HOST}" --port "${DB_PORT}" --user "${DB_USERNAME}" --password "${DB_PASSWORD}" "${DB_DATABASE}" > "${BACKUP_FILE}"
+    mariadb-dump --host="${DB_HOST}" --port="${DB_PORT}" --user="${DB_USERNAME}" --password="${DB_PASSWORD}" "${DB_DATABASE}" > "${BACKUP_FILE}"
     ;;
 
   mysql)
