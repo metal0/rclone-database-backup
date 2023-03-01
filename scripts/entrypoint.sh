@@ -57,9 +57,8 @@ else
 fi
 
 # configure crontab
-echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" > crontab.txt && crontab crontab.txt
-echo "Crontab config loaded"
-#crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" | crontab - && echo "created cron entry"
+echo "CRON = ${CRON}"
+crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd /app/scripts && sh backup.sh > /dev/stdout" | crontab - && echo "created cron entry"
 
 service cron start
 
