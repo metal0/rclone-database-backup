@@ -10,7 +10,7 @@ RUN echo "ad125f01bada12a1ba2f9986a21c59d2cccbe8d584e7f55079ecbeb7f43a4da4 maria
 RUN chmod +x mariadb_repo_setup
 RUN ./mariadb_repo_setup --mariadb-server-version="mariadb-10.6"
 RUN apt-get update -y
-RUN apt install mariadb-client
+RUN apt install mariadb-client -y
 RUN curl https://rclone.org/install.sh | bash
 
 # create the app directory
