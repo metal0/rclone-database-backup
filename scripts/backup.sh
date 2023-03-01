@@ -27,7 +27,7 @@ case "${DB_CONNECTION}" in
 
 esac
 
-if [[ $? != 0 ]]; then
+if [ $? != 0 ]; then
   echo "could not export database"
   exit 1
 fi
@@ -35,7 +35,7 @@ fi
 echo "uploading file"
 
 rclone copy "${BACKUP_FILE}" "${RCLONE_REMOTE}:${BACKUP_FOLDER}"
-if [[ $? != 0 ]]; then
+if [ $? != 0 ]; then
   echo "rclone copy failed"
   exit 1
 fi
