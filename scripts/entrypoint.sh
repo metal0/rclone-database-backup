@@ -1,13 +1,13 @@
 #!/bin/sh
 
-function check_env() {
+check_env() {
   if [[ -z "$1" ]]; then
     echo "environment variable is missing a value"
     exit 1
   fi
 }
 
-function check_file() {
+check_file() {
   if [[ ! -f "$1" ]]; then
     echo "sqlite database not found"
     exit 1

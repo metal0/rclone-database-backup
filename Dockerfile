@@ -1,17 +1,8 @@
-FROM alpine:edge
+FROM debian:latest
 
-# install required packages
-RUN apk --no-cache add \
-    postgresql-client \
-    rclone \
-    sqlite \
-    tzdata \
-    libffi-dev \
-    musl-dev \
-    libressl-dev \
-    gcc
-
-
+RUN apt-get update -y
+RUN apt-get install -y sqlite3 postgresql-client tzdata openssl curl unzip crontab crond
+RUN curl https://rclone.org/install.sh | bash
 
 # create the app directory
 WORKDIR /app
@@ -20,7 +11,7 @@ WORKDIR /app
 COPY . ./
 
 # copy mysqldump binary
-COPY --from=linuxserver/mariadb:alpine /usr/bin/mysqldump /usr/bin/mysqldump
+COPY --from=linuxserver/mariadb:latest /usr/bin/mysqldump /usr/bin/mysqldump
 
 # fix permissions
 RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
