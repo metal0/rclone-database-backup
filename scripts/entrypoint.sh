@@ -8,14 +8,14 @@ check_env() {
 }
 
 check_file() {
-  if [[ ! -f "$1" ]]; then
+  if [ ! -f "$1" ]; then
     echo "sqlite database not found"
     exit 1
   fi
 }
 
 # rclone command
-if [ "$1" == "rclone" ]; then
+if "$1" == "rclone" then
     $*
     exit 0
 fi
@@ -27,7 +27,7 @@ check_env "${RCLONE_REMOTE}"
 check_env "${BACKUP_FOLDER}"
 check_env "${BACKUP_AGE}"
 check_env "${DB_CONNECTION}"
-if [ "${DB_CONNECTION}" == "sqlite" ]; then
+if "${DB_CONNECTION}" == "sqlite"  then
   check_env "${DB_FILE}"
   check_file "/database/${DB_FILE}"
 else
@@ -61,5 +61,5 @@ crontab -l | grep -q "backup.sh" && echo "cron entry exists" || echo "${CRON} cd
 echo "crons:"
 crontab -l | echo
 #
-echo "starting crond"
-crond -l 2 -f
+#echo "starting crond"
+#crond -l 2 -f
