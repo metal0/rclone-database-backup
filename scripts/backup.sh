@@ -3,7 +3,7 @@
 BACKUP_FILE="$(date +%Y-%m-%d_%H-%M-%S).sql"
 
 echo "exporting database"
-echo "${DB_CONNECTION}-${DB_HOST}-${DB_USERNAME}-${DB_PASSWORD}-${DB_DATABASE}"
+echo "${DB_CONNECTION}-${DB_HOST}:${DB_PORT} ${DB_USERNAME}:${DB_PASSWORD} (${DB_DATABASE})"
 case "${DB_CONNECTION}" in
 
   mariadb)
