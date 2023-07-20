@@ -6,7 +6,6 @@ RUN apk --no-cache -U add \
     mariadb-client \
     ca-certificates \
     postgresql-client \
-    rclone \
     sqlite \
     tzdata \
     libffi-dev \
@@ -22,14 +21,17 @@ WORKDIR /app
 # copy project folder
 COPY . ./
 
+# copy rclone binary
+COPY --from=rclone/rclone:latest /usr/local/bin/rclone /usr/bin/rclone
+
 # copy mysqldump binary
 # COPY --from=linuxserver/mariadb:alpine /usr/bin/mysqldump /usr/bin/mysqldump
-
-# fix permissions
-RUN ["chmod", "+x", "scripts/backup.sh", "scripts/entrypoint.sh"]
 
 # volume for rclone config
 VOLUME ["/root/.config/rclone"]
 
 # entrypoint
-ENTRYPOINT ["/bin/sh", "scripts/entrypoint.sh"]
+ENTRYPOINT ["/app/src/entrypoint.sh"]
+
+# cmd
+CMD ["crond", "-l", "2", "-f"]
